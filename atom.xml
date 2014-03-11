@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-11T16:45:15+08:00</updated>
+  <updated>2014-03-11T16:46:48+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -18,8 +18,8 @@
     <link href="http://wfqr.github.io/blog/2014/03/11/ioschang-yong-san-ge-wang-zhan/"/>
     <updated>2014-03-11T16:23:36+08:00</updated>
     <id>http://wfqr.github.io/blog/2014/03/11/ioschang-yong-san-ge-wang-zhan</id>
-    <content type="html"><![CDATA[<p>国内不错的代码站点  <a href="http://www.code4app.com/">http://www.code4app.com/</a>
-国外的 <a href="https://www.cocoacontrols.com/">https://www.cocoacontrols.com/</a>
+    <content type="html"><![CDATA[<p>国内不错的代码站点  <a href="http://www.code4app.com/\r\n">http://www.code4app.com/\r\n</a>
+国外的 <a href="https://www.cocoacontrols.com/\r\n">https://www.cocoacontrols.com/\r\n</a>
 国内不错的论坛  <a href="http://bbs.cocoachina.com/">http://bbs.cocoachina.com/</a></p>
 ]]></content>
   </entry>
