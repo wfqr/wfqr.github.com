@@ -7,6 +7,11 @@ sharing: true
 footer: true
 ---
 
-{% img /images/myImage/IMG_9114.JPG %} 
+{% imgcap left /images/myImage/IMG_9114.JPG 笑笑小美女 %} 
 
-我家笑笑！
+```objc  
+- (void) hello
+{
+    NSLog(@"%@", @"Hello 笑笑!");
+} 
+``` 

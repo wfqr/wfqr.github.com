@@ -13,6 +13,9 @@
 	border-top: 1px solid $top;
 	border-bottom: 1px solid $bottom;
 }
+@mixin reset-shadow-box() {  
+  @include shadow-box(0px, 0px, 0px);  
+} 
 @mixin center($width, $height){
 	position: absolute;
 	top: 50%;
