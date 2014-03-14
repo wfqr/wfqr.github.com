@@ -4,7 +4,7 @@
   <title><![CDATA[Category: IOS | 笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-14T17:46:18+08:00</updated>
+  <updated>2014-03-14T17:50:57+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -22,9 +22,9 @@
 
 <p>转自：<a href="http://blog.csdn.net/ahopedog/article/details/7390071">http://blog.csdn.net/ahopedog/article/details/7390071</a></p>
 
-<p>这是一个很常见的类型-布尔，代表真或假的两个状态。但请注意，这里写的是BOOL（大写字母），并非输入有误，Object-C中的布尔类型就是这个样子的。如果顺其自然的将BOOL按照bool使用，很可能就会出现意想不到的结果。</p>
-
-<p>请看代码：</p>
+<p>这是一个很常见的类型-布尔，代表真或假的两个状态。但请注意，这里写的是BOOL（大写字母），并非输入有误，Object-C中的布尔类型就是这个样子的。如果顺其自然的将BOOL按照bool使用，很可能就会出现意想不到的结果。
+&lt;!– more –>
+请看代码：</p>
 
 <p>```objc
 bool b1 = true;<br/>
