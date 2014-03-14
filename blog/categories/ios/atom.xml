@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: IOS | 笑笑她爹的旮旯]]></title>
+  <link href="http://wfqr.github.io/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://wfqr.github.io/"/>
+  <updated>2014-03-14T15:30:40+08:00</updated>
+  <id>http://wfqr.github.io/</id>
+  <author>
+    <name><![CDATA[笑笑她爹]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[IOS里BOOL和bool]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/14/iosli-boolhe-bool/"/>
+    <updated>2014-03-14T15:17:23+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/14/iosli-boolhe-bool</id>
+    <content type="html"><![CDATA[<p>今天坛子里有筒子鄙视了一下 if (bSign == YES)的写法，在我印象里，BOOL和bool是有区别的，随后找到这篇文章：</p>
+
+<p>转自：<a href="http://blog.csdn.net/ahopedog/article/details/7390071">http://blog.csdn.net/ahopedog/article/details/7390071</a></p>
+
+<p>这是一个很常见的类型-布尔，代表真或假的两个状态。但请注意，这里写的是BOOL（大写字母），并非输入有误，Object-C中的布尔类型就是这个样子的。如果顺其自然的将BOOL按照bool使用，很可能就会出现意想不到的结果。</p>
+
+<p>请看代码：</p>
+
+<p>```objc
+bool b1 = true;<br/>
+BOOL b2 = true;<br/>
+bool b3 = 256; //0x100<br/>
+BOOL b4 = 256; //0x100</p>
+
+<p>if(b1) NSLog(@&ldquo;b1 is true&rdquo;);<br/>
+if(b2) NSLog(@&ldquo;b2 is true&rdquo;);<br/>
+if(b3) NSLog(@&ldquo;b3 is true&rdquo;);<br/>
+if(b4) NSLog(@&ldquo;b4 is true&rdquo;);
+```
+你觉得会输出什么?</p>
+
+<p>b1 is true<br/>
+b2 is true<br/>
+b3 is true</p>
+
+<p>没有输出b4 is true，由此可见BOOL与bool不能完全同等对待。</p>
+
+<p>为了能更容易的理解Object-C中BOOL的用法，我们还是从最基本的if语句开始说明。</p>
+
+<p>if</p>
+
+<pre><code>    if是编程语言里最基本一个符号，简单的理解是表达式为真时执行，表达式为假时不执行。如果你是个JAVA程序员就要注意了，在c里，if有另外一种执行方式。表达式非0则执行，表达式为0则不执行。int, bool, char等类型的值都可以作为if的表达式使用。
+</code></pre>
+
+<p>if和bool</p>
+
+<pre><code>    这个应该很容易理解，也是最直接的使用方式，bool的值只有2个, true和false。这里不再说明。
+</code></pre>
+
+<p>if和int</p>
+
+<pre><code>   上面提到if的一个判断原则是非0则执行，0则不执行。请看代码
+</code></pre>
+
+<p><code>objc
+int a = 100;  
+int b = 0;  
+if(a)  
+   NSLog(@"a执行");  
+if(b)  
+   NSLog(@"b不执行");  
+</code>
+输出：</p>
+
+<p>a执行<br/>
+if和char
+char是1个字节的数值，所以也可以作为if的表达式使用。执行时，char首先被转换成int然后才参与计算。</p>
+
+<p><code>objc
+char a = 100;  
+char b = 0;  
+if(a)  
+   NSLog(@"a执行");  
+if(b)  
+   NSLog(@"b执行");  
+</code></p>
+
+<p>输出结果与int作为表达式的完全相同：</p>
+
+<p>a执行</p>
+
+<p>Object-C里的BOOL
+BOOL与bool并非同一个对象。Object-C里的BOOL是使用typedef重定义的char。</p>
+
+<p>在头文件objc.h中有这样几行代码：</p>
+
+<p>```objc
+typedef signed char     BOOL; <br/>
+// BOOL is explicitly signed so @encode(BOOL) == &ldquo;c&rdquo; rather than &ldquo;C&rdquo; <br/>
+// even if -funsigned-char is used.</p>
+
+<h1>define OBJC_BOOL_DEFINED</h1>
+
+<h1>define YES             (BOOL)1</h1>
+
+<h1>define NO              (BOOL)0</h1>
+
+<p>```</p>
+
+<p>更准确的说，BOOL是无符号char的类型重定义，可以使用BOOL这个名字代替signed char使用。下面又定义了个2个符号， YES和NO，这是2个字面量，可以在代码中直接使用YES代替1， NO代替0。</p>
+
+<p>按照Object-C的原则，BOOL类型的变量只应该取YES和NO两个值。当YES（非0值）作为if的表达式时，if代码块里的代码便会执行，反之，NO则不执行。</p>
+
+<p>```objc
+BOOL a = YES;<br/>
+BOOL b = NO;<br/>
+if(a == YES){</p>
+
+<pre><code> NSLog(@"a==YES");  
+</code></pre>
+
+<p>}<br/>
+if(b == NO){</p>
+
+<pre><code> NSLog(@"b==NO");  
+</code></pre>
+
+<p>}<br/>
+if(a){</p>
+
+<pre><code> NSLog(@"a is true");  
+</code></pre>
+
+<p>}<br/>
+if(b){</p>
+
+<pre><code> NSLog(@"b");  
+</code></pre>
+
+<p>}
+```
+输出：</p>
+
+<p>a==YES<br/>
+b==NO<br/>
+a is true</p>
+
+<p>现在回顾文章开头的例子</p>
+
+<p><code>objc
+bool b3 = 256; //0x100  
+BOOL b4 = 256; //0x100  
+if(b3) NSLog(@"b3 is true");  
+if(b4) NSLog(@"b4 is true");  
+</code></p>
+
+<p>这里有些奇怪，bool与BOOL即使不是同一种数据类型，但是赋予的值都是非0值，按理说if也应该认为这是一个检查通过的表达式。</p>
+
+<p>其实，BOOL是signed char的重定义，char的长度是1个字节，而数字256的低8位全是0，被转换成char后，char类型的变量就是0了（高位被丢弃）。所以最终作为if表达式的值实际上是0。</p>
+
+<p>建议的用法
+Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为了一套完整语言的规范或是移植性的原因吧。</p>
+
+<p> 最后建议，为了规范程序里的代码，BOOL只应该使用YES和NO这2个值，而且在if语句的判断中尽量使用下面的格式：</p>
+
+<p>```objc
+if(a == YES){</p>
+
+<pre><code>  …  
+</code></pre>
+
+<p>}</p>
+
+<p>if(b == NO){</p>
+
+<pre><code> ...  
+</code></pre>
+
+<p>}
+```</p>
+
+<p>3Q</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[修改UIWebView的UserAgent]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/14/xiu-gai-uiwebviewde-useragent/"/>
+    <updated>2014-03-14T14:54:33+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/14/xiu-gai-uiwebviewde-useragent</id>
+    <content type="html"><![CDATA[<p>```objc
+//設定UserAgent參數，綁定在每次UIWebView的Request中使用
+NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&ldquo;Mozilla/5.0 (iPhone; U; CPU OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9  (KHTML, like Gecko)Version/4.0 Mobile/8C148 Safari/528.16&rdquo;, @&ldquo;UserAgent&rdquo;, nil];</p>
+
+<p>[[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
+[dictionnary release];
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
