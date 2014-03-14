@@ -2,26 +2,30 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://wfqr.github.io/blog/2014/03/11/ioschang-yong-san-ge-wang-zhan/</loc>
-        <lastmod>2014-03-11T16:49:00+08:00</lastmod>
+        <lastmod>2014-03-14T09:58:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://wfqr.github.io/blog/2014/03/11/hello/</loc>
-        <lastmod>2014-03-11T17:17:27+08:00</lastmod>
+        <lastmod>2014-03-14T09:58:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://wfqr.github.io/about/</loc>
-        <lastmod>2014-03-11T16:05:15+08:00</lastmod>
+        <lastmod>2014-03-14T09:58:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://wfqr.github.io/blog/archives/</loc>
-        <lastmod>2014-03-11T17:17:27+08:00</lastmod>
+        <lastmod>2014-03-14T09:58:33+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://wfqr.github.io/blog/</loc>
+        <lastmod>2014-03-14T09:58:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://wfqr.github.io/</loc>
-        <lastmod>2014-03-11T17:17:27+08:00</lastmod>
+        <lastmod>2014-03-14T09:58:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://wfqr.github.io/robots.txt</loc>
-        <lastmod>2014-03-11T13:44:20+08:00</lastmod>
+        <lastmod>2014-03-14T09:58:33+08:00</lastmod>
     </url>
 </urlset>
