@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-14T17:50:57+08:00</updated>
+  <updated>2014-03-14T17:55:17+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -322,7 +322,7 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
     <content type="html"><![CDATA[<p>  刚开完会，信息中心老大说了一下2014年中心的规划。</p>
 
 <p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。
-&lt;!– more –>
+&lt;!&ndash; more &ndash;>
   中心2014年的走向非常清晰，“一体两翼”。一体：VIP用户的大数据挖掘。左翼：包括，掌上JY，wifi精准定位等，电子广告布屏，移动POS等的。。。。。。。（记不得了，完全，年纪大了）。右翼：商务电子化。</p>
 
 <p>  要做的事很多啊，终端开发任务看上去也比较重，加油吧！</p>
