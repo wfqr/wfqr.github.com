@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-14T17:55:17+08:00</updated>
+  <updated>2014-03-17T08:45:55+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -22,9 +22,12 @@
 
 <p>转自：<a href="http://blog.csdn.net/ahopedog/article/details/7390071">http://blog.csdn.net/ahopedog/article/details/7390071</a></p>
 
-<p>这是一个很常见的类型-布尔，代表真或假的两个状态。但请注意，这里写的是BOOL（大写字母），并非输入有误，Object-C中的布尔类型就是这个样子的。如果顺其自然的将BOOL按照bool使用，很可能就会出现意想不到的结果。
-&lt;!– more –>
-请看代码：</p>
+<p>这是一个很常见的类型-布尔，代表真或假的两个状态。但请注意，这里写的是BOOL（大写字母），并非输入有误，Object-C中的布尔类型就是这个样子的。如果顺其自然的将BOOL按照bool使用，很可能就会出现意想不到的结果。</p>
+
+<!--more-->
+
+
+<p>请看代码：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -227,6 +230,9 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
     <id>http://wfqr.github.io/blog/2014/03/14/qu-diao-ios</id>
     <content type="html"><![CDATA[<p>info三处：</p>
 
+<!--more-->
+
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -257,7 +263,6 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
 <span class='line-number'>28</span>
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
-<span class='line-number'>31</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;dict&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;key&gt;</span>UIPrerenderedIcon<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;true/&gt;</span>
@@ -274,7 +279,6 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
 </span><span class='line'>            <span class="nt">&lt;true/&gt;</span>
 </span><span class='line'>        <span class="nt">&lt;/dict&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'><span class="cp">&lt;!– more –&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;key&gt;</span>CFBundleIcons~ipad<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;dict&gt;</span>
 </span><span class='line'>        <span class="nt">&lt;key&gt;</span>CFBundlePrimaryIcon<span class="nt">&lt;/key&gt;</span>
@@ -321,9 +325,12 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
     <id>http://wfqr.github.io/blog/2014/03/14/2014xin-xi-zhong-xin</id>
     <content type="html"><![CDATA[<p>  刚开完会，信息中心老大说了一下2014年中心的规划。</p>
 
-<p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。
-&lt;!&ndash; more &ndash;>
-  中心2014年的走向非常清晰，“一体两翼”。一体：VIP用户的大数据挖掘。左翼：包括，掌上JY，wifi精准定位等，电子广告布屏，移动POS等的。。。。。。。（记不得了，完全，年纪大了）。右翼：商务电子化。</p>
+<p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。</p>
+
+<!--more-->
+
+
+<p>  中心2014年的走向非常清晰，“一体两翼”。一体：VIP用户的大数据挖掘。左翼：包括，掌上JY，wifi精准定位等，电子广告布屏，移动POS等的。。。。。。。（记不得了，完全，年纪大了）。右翼：商务电子化。</p>
 
 <p>  要做的事很多啊，终端开发任务看上去也比较重，加油吧！</p>
 

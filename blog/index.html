@@ -106,206 +106,16 @@
 
 
 
+<div class="entry-content clearfix">
   <p>今天坛子里有筒子鄙视了一下 if (bSign == YES)的写法，在我印象里，BOOL和bool是有区别的，随后找到这篇文章：</p>
 
 <p>转自：<a href="http://blog.csdn.net/ahopedog/article/details/7390071">http://blog.csdn.net/ahopedog/article/details/7390071</a></p>
 
-<p>这是一个很常见的类型-布尔，代表真或假的两个状态。但请注意，这里写的是BOOL（大写字母），并非输入有误，Object-C中的布尔类型就是这个样子的。如果顺其自然的将BOOL按照bool使用，很可能就会出现意想不到的结果。
-&lt;!– more –>
-请看代码：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">bool</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</span><span class='line'><span class="kt">BOOL</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</span><span class='line'><span class="n">bool</span> <span class="n">b3</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span> <span class="c1">//0x100  </span>
-</span><span class='line'><span class="kt">BOOL</span> <span class="n">b4</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span> <span class="c1">//0x100  </span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b1 is true&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b2 is true&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b3</span><span class="p">)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b3 is true&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b4</span><span class="p">)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b4 is true&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>这是一个很常见的类型-布尔，代表真或假的两个状态。但请注意，这里写的是BOOL（大写字母），并非输入有误，Object-C中的布尔类型就是这个样子的。如果顺其自然的将BOOL按照bool使用，很可能就会出现意想不到的结果。</p>
 
 
-<p>
-你觉得会输出什么?</p>
-
-<p>b1 is true<br/>
-b2 is true<br/>
-b3 is true</p>
-
-<p>没有输出b4 is true，由此可见BOOL与bool不能完全同等对待。</p>
-
-<p>为了能更容易的理解Object-C中BOOL的用法，我们还是从最基本的if语句开始说明。</p>
-
-<p>if</p>
-
-<pre><code>    if是编程语言里最基本一个符号，简单的理解是表达式为真时执行，表达式为假时不执行。如果你是个JAVA程序员就要注意了，在c里，if有另外一种执行方式。表达式非0则执行，表达式为0则不执行。int, bool, char等类型的值都可以作为if的表达式使用。
-</code></pre>
-
-<p>if和bool</p>
-
-<pre><code>    这个应该很容易理解，也是最直接的使用方式，bool的值只有2个, true和false。这里不再说明。
-</code></pre>
-
-<p>if和int</p>
-
-<pre><code>   上面提到if的一个判断原则是非0则执行，0则不执行。请看代码
-</code></pre>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-</span><span class='line'><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;a执行&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b不执行&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出：</p>
-
-<p>a执行<br/>
-if和char
-char是1个字节的数值，所以也可以作为if的表达式使用。执行时，char首先被转换成int然后才参与计算。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-</span><span class='line'><span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;a执行&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b执行&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>输出结果与int作为表达式的完全相同：</p>
-
-<p>a执行</p>
-
-<p>Object-C里的BOOL
-BOOL与bool并非同一个对象。Object-C里的BOOL是使用typedef重定义的char。</p>
-
-<p>在头文件objc.h中有这样几行代码：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">typedef</span> <span class="kt">signed</span> <span class="kt">char</span>     <span class="kt">BOOL</span><span class="p">;</span>
-</span><span class='line'><span class="c1">// BOOL is explicitly signed so @encode(BOOL) == &quot;c&quot; rather than &quot;C&quot;   </span>
-</span><span class='line'><span class="c1">// even if -funsigned-char is used.  </span>
-</span><span class='line'><span class="cp">#define OBJC_BOOL_DEFINED  </span>
-</span><span class='line'>
-</span><span class='line'><span class="cp">#define YES             (BOOL)1  </span>
-</span><span class='line'><span class="cp">#define NO              (BOOL)0  </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>更准确的说，BOOL是无符号char的类型重定义，可以使用BOOL这个名字代替signed char使用。下面又定义了个2个符号， YES和NO，这是2个字面量，可以在代码中直接使用YES代替1， NO代替0。</p>
-
-<p>按照Object-C的原则，BOOL类型的变量只应该取YES和NO两个值。当YES（非0值）作为if的表达式时，if代码块里的代码便会执行，反之，NO则不执行。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="kt">BOOL</span> <span class="n">a</span> <span class="o">=</span> <span class="n">YES</span><span class="p">;</span>
-</span><span class='line'><span class="kt">BOOL</span> <span class="n">b</span> <span class="o">=</span> <span class="n">NO</span><span class="p">;</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">YES</span><span class="p">){</span>
-</span><span class='line'>     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;a==YES&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">NO</span><span class="p">){</span>
-</span><span class='line'>     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b==NO&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">){</span>
-</span><span class='line'>     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;a is true&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">){</span>
-</span><span class='line'>     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-输出：</p>
-
-<p>a==YES<br/>
-b==NO<br/>
-a is true</p>
-
-<p>现在回顾文章开头的例子</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">bool</span> <span class="n">b3</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span> <span class="c1">//0x100  </span>
-</span><span class='line'><span class="kt">BOOL</span> <span class="n">b4</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span> <span class="c1">//0x100  </span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b3</span><span class="p">)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b3 is true&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b4</span><span class="p">)</span> <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;b4 is true&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这里有些奇怪，bool与BOOL即使不是同一种数据类型，但是赋予的值都是非0值，按理说if也应该认为这是一个检查通过的表达式。</p>
-
-<p>其实，BOOL是signed char的重定义，char的长度是1个字节，而数字256的低8位全是0，被转换成char后，char类型的变量就是0了（高位被丢弃）。所以最终作为if表达式的值实际上是0。</p>
-
-<p>建议的用法
-Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为了一套完整语言的规范或是移植性的原因吧。</p>
-
-<p> 最后建议，为了规范程序里的代码，BOOL只应该使用YES和NO这2个值，而且在if语句的判断中尽量使用下面的格式：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">YES</span><span class="p">){</span>
-</span><span class='line'>      <span class="err">…</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">NO</span><span class="p">){</span>
-</span><span class='line'>     <span class="p">...</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>3Q</p>
-
+  <a class="btn pull-right" href="/blog/2014/03/14/iosli-boolhe-bool/">阅读全文 &rarr;</a>
+</div>
 
   </article>
   <hr>
@@ -345,73 +155,12 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
 
 
 
+<div class="entry-content clearfix">
   <p>info三处：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;key&gt;</span>UIPrerenderedIcon<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;true/&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;key&gt;</span>CFBundleIcons<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;key&gt;</span>CFBundlePrimaryIcon<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;key&gt;</span>CFBundleIconFiles<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;array&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;string&gt;</span>Icon<span class="nt">&lt;/string&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/array&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;key&gt;</span>UIPrerenderedIcon<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;true/&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'><span class="cp">&lt;!– more –&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;key&gt;</span>CFBundleIcons~ipad<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;key&gt;</span>CFBundlePrimaryIcon<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;key&gt;</span>CFBundleIconFiles<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;array&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;string&gt;</span>Icon<span class="nt">&lt;/string&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/array&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;key&gt;</span>UIPrerenderedIcon<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;true/&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;/dict&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
 
-
+  <a class="btn pull-right" href="/blog/2014/03/14/qu-diao-ios/">阅读全文 &rarr;</a>
+</div>
 
   </article>
   <hr>
@@ -514,16 +263,14 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
 
 
 
+<div class="entry-content clearfix">
   <p>  刚开完会，信息中心老大说了一下2014年中心的规划。</p>
 
-<p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。
-&lt;!&ndash; more &ndash;>
-  中心2014年的走向非常清晰，“一体两翼”。一体：VIP用户的大数据挖掘。左翼：包括，掌上JY，wifi精准定位等，电子广告布屏，移动POS等的。。。。。。。（记不得了，完全，年纪大了）。右翼：商务电子化。</p>
+<p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。</p>
 
-<p>  要做的事很多啊，终端开发任务看上去也比较重，加油吧！</p>
 
-<p>  我还是想要买个GUNPLA啊！。。。。。。。。</p>
-
+  <a class="btn pull-right" href="/blog/2014/03/14/2014xin-xi-zhong-xin/">阅读全文 &rarr;</a>
+</div>
 
   </article>
   <hr>
