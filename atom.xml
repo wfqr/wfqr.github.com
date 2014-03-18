@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-18T15:23:30+08:00</updated>
+  <updated>2014-03-18T15:26:18+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -18,11 +18,15 @@
     <link href="http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-%2Cying-yong-zai-fu-wu-qi-duan-de-bu-shu/"/>
     <updated>2014-03-18T15:13:10+08:00</updated>
     <id>http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-,ying-yong-zai-fu-wu-qi-duan-de-bu-shu</id>
-    <content type="html"><![CDATA[<p>一共上四个文件
-test.html //客户访问用
-manifest.plist //配置文件
-test.ipa //应用的ipa
-install.png和logo.png //一个是页面显示的图标，一个是APP安装时的图标，嫌麻烦的话，一个文件就OK</p>
+    <content type="html"><![CDATA[<p>一共上四个文件</p>
+
+<p>test.html //客户访问用</p>
+
+<p>manifest.plist //配置文件</p>
+
+<p>test.ipa //应用的ipa</p>
+
+<p>install.png和logo.png //一个是页面显示的图标，一个是APP安装时的图标，嫌麻烦的话，一个文件就OK</p>
 
 <p>test.html范例：</p>
 
@@ -124,25 +128,25 @@ install.png和logo.png //一个是页面显示的图标，一个是APP安装时�
 </span><span class='line'><span class="nt">&lt;dict&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;key&gt;</span>items<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;array&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;key&gt;</span>assets<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;array&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>software-package<span class="nt">&lt;/string&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/appname.ipa<span class="nt">&lt;/string&gt;</span> //路径
-</span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>display-image<span class="nt">&lt;/string&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>needs-shine<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;true/&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/logo.png<span class="nt">&lt;/string&gt;</span> //路径
-</span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;/array&gt;&lt;key&gt;</span>metadata<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>         <span class="nt">&lt;key&gt;</span>assets<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>         <span class="nt">&lt;array&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>software-package<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/appname.ipa<span class="nt">&lt;/string&gt;</span> //路径
+</span><span class='line'>            <span class="nt">&lt;/dict&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>display-image<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>needs-shine<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;true/&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/logo.png<span class="nt">&lt;/string&gt;</span> //路径
+</span><span class='line'>            <span class="nt">&lt;/dict&gt;</span>
+</span><span class='line'>         <span class="nt">&lt;/array&gt;&lt;key&gt;</span>metadata<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;dict&gt;</span>
 </span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-identifier<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>               <span class="nt">&lt;string&gt;</span>bundleid<span class="nt">&lt;/string&gt;</span> //要改
 </span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-version<span class="nt">&lt;/key&gt;</span>
