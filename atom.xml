@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-18T15:15:44+08:00</updated>
+  <updated>2014-03-18T15:21:02+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -18,7 +18,13 @@
     <link href="http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-%2Cying-yong-zai-fu-wu-qi-duan-de-bu-shu/"/>
     <updated>2014-03-18T15:13:10+08:00</updated>
     <id>http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-,ying-yong-zai-fu-wu-qi-duan-de-bu-shu</id>
-    <content type="html"><![CDATA[<p>test.html范例：</p>
+    <content type="html"><![CDATA[<p>一共上四个文件
+test.html //客户访问用
+manifest.plist //配置文件
+test.ipa //应用的ipa
+install.png和logo.png //一个是页面显示的图标，一个是APP安装时的图标，嫌麻烦的话，一个文件就OK</p>
+
+<p>test.html范例：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -52,14 +58,14 @@
 </span><span class='line'><span class="nt">&lt;/head&gt;</span>
 </span><span class='line'><span class="nt">&lt;body&gt;</span>
 </span><span class='line'> <span class="nt">&lt;table</span> <span class="na">style=</span><span class="s">&quot;width: 294px; height: 248px&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'> <span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">&quot;position:absolute; top:100px; left:30px;display:block;&quot;</span> <span class="na">src=</span><span class="s">&quot;install.png&quot;</span> <span class="na">onclick=</span><span class="s">&quot;install();&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'> <span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">&quot;position:absolute; top:100px; left:30px;display:block;&quot;</span> <span class="na">src=</span><span class="s">&quot;install.png&quot;</span> <span class="na">onclick=</span><span class="s">&quot;install();&quot;</span> <span class="nt">/&gt;</span>  //图标文件
 </span><span class='line'> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;float:left;&quot;</span><span class="nt">&gt;</span>直接下载ipa安装文件（V1.0)<span class="nt">&lt;/span&gt;</span>
 </span><span class='line'><span class="nt">&lt;/table&gt;</span>
 </span><span class='line'><span class="nt">&lt;/body&gt;</span>
 </span><span class='line'><span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&#39;JavaScript&#39;</span><span class="nt">&gt;</span>
 </span><span class='line'>       <span class="nx">install</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span>
 </span><span class='line'>       <span class="p">{</span>
-</span><span class='line'>            <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">&#39;itms-services://?action=download-manifest&amp;url=http://your_server_addr/domain/manifest.plist&#39;</span><span class="p">;</span>
+</span><span class='line'>            <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">&#39;itms-services://?action=download-manifest&amp;url=http://your_server_addr/domain/manifest.plist&#39;</span><span class="p">;</span> <span class="c1">//路径要改</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="nt">&lt;/script&gt;</span>
 </span><span class='line'>
@@ -122,7 +128,7 @@
 </span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>                   <span class="nt">&lt;string&gt;</span>software-package<span class="nt">&lt;/string&gt;</span>
 </span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/appname.ipa<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/appname.ipa<span class="nt">&lt;/string&gt;</span> //路径
 </span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
 </span><span class='line'>               <span class="nt">&lt;dict&gt;</span>
 </span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
@@ -130,20 +136,20 @@
 </span><span class='line'>                   <span class="nt">&lt;key&gt;</span>needs-shine<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>                   <span class="nt">&lt;true/&gt;</span>
 </span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/logo57.png<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/logo.png<span class="nt">&lt;/string&gt;</span> //路径
 </span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
 </span><span class='line'>           <span class="nt">&lt;/array&gt;&lt;key&gt;</span>metadata<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>           <span class="nt">&lt;dict&gt;</span>
 </span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-identifier<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>bundleid<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>bundleid<span class="nt">&lt;/string&gt;</span> //要改
 </span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-version<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>1.0.1001<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>1.0.1001<span class="nt">&lt;/string&gt;</span> //要改
 </span><span class='line'>               <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
 </span><span class='line'>               <span class="nt">&lt;string&gt;</span>software<span class="nt">&lt;/string&gt;</span>
 </span><span class='line'>               <span class="nt">&lt;key&gt;</span>subtitle<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>subtitle<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>subtitle<span class="nt">&lt;/string&gt;</span> //要改
 </span><span class='line'>               <span class="nt">&lt;key&gt;</span>title<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>title<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>title<span class="nt">&lt;/string&gt;</span> //要改
 </span><span class='line'>           <span class="nt">&lt;/dict&gt;</span>
 </span><span class='line'>       <span class="nt">&lt;/dict&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;/array&gt;</span>
