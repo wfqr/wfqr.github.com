@@ -98,6 +98,7 @@ install.png和logo.png //一个是页面显示的图标，一个是APP安装时�
 
 
 
+<div class="entry-content clearfix">
   <p>一共上四个文件
 test.html //客户访问用
 manifest.plist //配置文件
@@ -153,91 +154,9 @@ install.png和logo.png //一个是页面显示的图标，一个是APP安装时�
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>manifest.plist范例：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-</span><span class='line'><span class="cp">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span>
-</span><span class='line'><span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'><span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;key&gt;</span>items<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;array&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;key&gt;</span>assets<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;array&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>software-package<span class="nt">&lt;/string&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/appname.ipa<span class="nt">&lt;/string&gt;</span> //路径
-</span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>display-image<span class="nt">&lt;/string&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>needs-shine<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;true/&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/logo.png<span class="nt">&lt;/string&gt;</span> //路径
-</span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;/array&gt;&lt;key&gt;</span>metadata<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>           <span class="nt">&lt;dict&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-identifier<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>bundleid<span class="nt">&lt;/string&gt;</span> //要改
-</span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-version<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>1.0.1001<span class="nt">&lt;/string&gt;</span> //要改
-</span><span class='line'>               <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>software<span class="nt">&lt;/string&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;key&gt;</span>subtitle<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>subtitle<span class="nt">&lt;/string&gt;</span> //要改
-</span><span class='line'>               <span class="nt">&lt;key&gt;</span>title<span class="nt">&lt;/key&gt;</span>
-</span><span class='line'>               <span class="nt">&lt;string&gt;</span>title<span class="nt">&lt;/string&gt;</span> //要改
-</span><span class='line'>           <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;/array&gt;</span>
-</span><span class='line'><span class="nt">&lt;/dict&gt;</span>
-</span><span class='line'><span class="nt">&lt;/plist&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+  <a class="btn pull-right" href="/blog/2014/03/18/99qi-ye-shan-hao-%2Cying-yong-zai-fu-wu-qi-duan-de-bu-shu/">阅读全文 &rarr;</a>
+</div>
 
   </article>
   <hr>
