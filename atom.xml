@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-17T15:16:21+08:00</updated>
+  <updated>2014-03-18T15:15:44+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -12,6 +12,147 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[299美元企业账号，应用在服务器端的部署]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-%2Cying-yong-zai-fu-wu-qi-duan-de-bu-shu/"/>
+    <updated>2014-03-18T15:13:10+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-,ying-yong-zai-fu-wu-qi-duan-de-bu-shu</id>
+    <content type="html"><![CDATA[<p>test.html范例：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'><span class="nt">&lt;meta</span> <span class="na">name =</span><span class="err"> </span><span class="s">&quot;viewport&quot;</span> <span class="na">content =</span><span class="err"> </span><span class="s">&quot;initial-scale = 0.8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;title&gt;</span>
+</span><span class='line'><span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'> <span class="nt">&lt;table</span> <span class="na">style=</span><span class="s">&quot;width: 294px; height: 248px&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'> <span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">&quot;position:absolute; top:100px; left:30px;display:block;&quot;</span> <span class="na">src=</span><span class="s">&quot;install.png&quot;</span> <span class="na">onclick=</span><span class="s">&quot;install();&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'> <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;float:left;&quot;</span><span class="nt">&gt;</span>直接下载ipa安装文件（V1.0)<span class="nt">&lt;/span&gt;</span>
+</span><span class='line'><span class="nt">&lt;/table&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">language=</span><span class="s">&#39;JavaScript&#39;</span><span class="nt">&gt;</span>
+</span><span class='line'>       <span class="nx">install</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span>
+</span><span class='line'>       <span class="p">{</span>
+</span><span class='line'>            <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">&#39;itms-services://?action=download-manifest&amp;url=http://your_server_addr/domain/manifest.plist&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>manifest.plist范例：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</span><span class='line'><span class="cp">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span>
+</span><span class='line'><span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;key&gt;</span>items<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;array&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>           <span class="nt">&lt;key&gt;</span>assets<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>           <span class="nt">&lt;array&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>software-package<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/appname.ipa<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>display-image<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>needs-shine<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;true/&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;key&gt;</span>url<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>                   <span class="nt">&lt;string&gt;</span>http://your_server_addr/domain/logo57.png<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;/dict&gt;</span>
+</span><span class='line'>           <span class="nt">&lt;/array&gt;&lt;key&gt;</span>metadata<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>           <span class="nt">&lt;dict&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-identifier<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>bundleid<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>bundle-version<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>1.0.1001<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>kind<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>software<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>subtitle<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>subtitle<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;key&gt;</span>title<span class="nt">&lt;/key&gt;</span>
+</span><span class='line'>               <span class="nt">&lt;string&gt;</span>title<span class="nt">&lt;/string&gt;</span>
+</span><span class='line'>           <span class="nt">&lt;/dict&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;/dict&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/array&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dict&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plist&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于octopress中《!-more-》无效]]></title>
