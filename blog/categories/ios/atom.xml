@@ -4,7 +4,7 @@
   <title><![CDATA[Category: IOS | 笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-18T17:18:20+08:00</updated>
+  <updated>2014-03-18T17:28:22+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[299美元企业账号，应用在服务器端的部署]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-%2Cying-yong-zai-fu-wu-qi-duan-de-bu-shu/"/>
+    <updated>2014-03-18T15:13:10+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/18/99qi-ye-shan-hao-,ying-yong-zai-fu-wu-qi-duan-de-bu-shu</id>
+    <content type="html"><![CDATA[<p>一共上四个文件</p>
+
+<p>test.html //客户访问用</p>
+
+<p>manifest.plist //配置文件</p>
+
+<p>test.ipa //应用的ipa</p>
+
+<p>install.png和logo.png //一个是页面显示的图标，一个是APP安装时的图标，嫌麻烦的话，一个文件就OK</p>
+
+<p>test.html范例：</p>
+
+<p>```html
+&lt;!DOCTYPE html PUBLIC &ldquo;&ndash;//W3C//DTD XHTML 1.0 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>&rdquo;>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta name = "viewport" content = "initial-scale = 0.8">
+<title>
+</title></p>
+
+<p></head>
+<body>
+ <table style="width: 294px; height: 248px">
+ <img style="position:absolute; top:100px; left:30px;display:block;" src="install.png" onclick="install();" />  //图标文件
+ <span style="float:left;">直接下载ipa安装文件（V1.0)</span>
+</table>
+</body></p>
+
+<script language='JavaScript'>
+       install = function() 
+       {
+            location.href = 'itms-services://?action=download-manifest&url=http://your_server_addr/domain/manifest.plist'; //路径要改
+        }
+    </script>
+
+
+<p></html>
+```</p>
+
+<!--more-->
+
+
+<p>manifest.plist范例：
+```html
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?>
+&lt;!DOCTYPE plist PUBLIC &ldquo;&ndash;//Apple//DTD PLIST 1.0//EN&rdquo; &ldquo;<a href="http://www.apple.com/DTDs/PropertyList-1.0.dtd">http://www.apple.com/DTDs/PropertyList-1.0.dtd</a>&rdquo;>
+<plist version="1.0">
+<dict>
+   <key>items</key>
+   <array></p>
+
+<pre><code>  &lt;dict&gt;
+     &lt;key&gt;assets&lt;/key&gt;
+     &lt;array&gt;
+        &lt;dict&gt;
+           &lt;key&gt;kind&lt;/key&gt;
+           &lt;string&gt;software-package&lt;/string&gt;
+           &lt;key&gt;url&lt;/key&gt;
+           &lt;string&gt;http://your_server_addr/domain/app.ipa&lt;/string&gt; //路径
+        &lt;/dict&gt;
+        &lt;dict&gt;
+           &lt;key&gt;kind&lt;/key&gt;
+           &lt;string&gt;display-image&lt;/string&gt;
+           &lt;key&gt;needs-shine&lt;/key&gt;
+           &lt;true/&gt;
+           &lt;key&gt;url&lt;/key&gt;
+           &lt;string&gt;http://your_server_addr/domain/logo.png&lt;/string&gt; //路径
+        &lt;/dict&gt;
+     &lt;/array&gt;&lt;key&gt;metadata&lt;/key&gt;
+        &lt;dict&gt;
+           &lt;key&gt;bundle-identifier&lt;/key&gt;
+           &lt;string&gt;bundleid&lt;/string&gt; //要改
+           &lt;key&gt;bundle-version&lt;/key&gt;
+           &lt;string&gt;1.0.1001&lt;/string&gt; //要改
+           &lt;key&gt;kind&lt;/key&gt;
+           &lt;string&gt;software&lt;/string&gt;
+           &lt;key&gt;subtitle&lt;/key&gt;
+           &lt;string&gt;subtitle&lt;/string&gt; //要改
+           &lt;key&gt;title&lt;/key&gt;
+           &lt;string&gt;title&lt;/string&gt; //要改
+       &lt;/dict&gt;
+   &lt;/dict&gt;
+</code></pre>
+
+<p>   </array>
+</dict>
+</plist>
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[IOS里BOOL和bool]]></title>
@@ -187,6 +283,53 @@ if(a == YES){</p>
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[去掉IOS ICON的高光]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/14/qu-diao-ios/"/>
+    <updated>2014-03-14T15:13:08+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/14/qu-diao-ios</id>
+    <content type="html"><![CDATA[<p>info三处：</p>
+
+<!--more-->
+
+
+<p>```xml
+<dict></p>
+
+<pre><code>&lt;key&gt;UIPrerenderedIcon&lt;/key&gt;
+&lt;true/&gt;
+
+&lt;key&gt;CFBundleIcons&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;CFBundlePrimaryIcon&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;CFBundleIconFiles&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;Icon&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;UIPrerenderedIcon&lt;/key&gt;
+        &lt;true/&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+&lt;key&gt;CFBundleIcons~ipad&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;CFBundlePrimaryIcon&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;CFBundleIconFiles&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;Icon&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;UIPrerenderedIcon&lt;/key&gt;
+        &lt;true/&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+</code></pre>
+
+<p></dict>
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[修改UIWebView的UserAgent]]></title>
     <link href="http://wfqr.github.io/blog/2014/03/14/xiu-gai-uiwebviewde-useragent/"/>
     <updated>2014-03-14T14:54:33+08:00</updated>
@@ -198,6 +341,19 @@ NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&ldquo
 <p>[[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
 [dictionnary release];
 ```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IOS常用三个网站]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/11/ioschang-yong-san-ge-wang-zhan/"/>
+    <updated>2014-03-11T16:23:36+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/11/ioschang-yong-san-ge-wang-zhan</id>
+    <content type="html"><![CDATA[<p>国内不错的代码站点  <a href="http://www.code4app.com/">http://www.code4app.com/</a></p>
+
+<p>国外的 <a href="https://www.cocoacontrols.com/">https://www.cocoacontrols.com/</a></p>
+
+<p>国内不错的论坛  <a href="http://bbs.cocoachina.com/">http://bbs.cocoachina.com/</a></p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-03-18T17:18:20+08:00</updated>
+  <updated>2014-03-18T17:28:22+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -514,7 +514,7 @@ Object-C使用signed char重定义为BOOL的原因就不多研究了，可能为
     <link href="http://wfqr.github.io/blog/2014/03/11/hello/"/>
     <updated>2014-03-11T17:17:27+08:00</updated>
     <id>http://wfqr.github.io/blog/2014/03/11/hello</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>本来这是第一篇BLOG，就像&#8221;hello world&#8221;一样。搞叉了，算了，就第二篇吧.</p>
 ]]></content>
   </entry>
   

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: others | 笑笑她爹的旮旯]]></title>
+  <link href="http://wfqr.github.io/blog/categories/others/atom.xml" rel="self"/>
+  <link href="http://wfqr.github.io/"/>
+  <updated>2014-03-18T17:28:22+08:00</updated>
+  <id>http://wfqr.github.io/</id>
+  <author>
+    <name><![CDATA[笑笑她爹]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[2014信息中心规划]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/14/2014xin-xi-zhong-xin/"/>
+    <updated>2014-03-14T10:53:37+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/14/2014xin-xi-zhong-xin</id>
+    <content type="html"><![CDATA[<p>  刚开完会，信息中心老大说了一下2014年中心的规划。</p>
+
+<p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。</p>
+
+<!--more-->
+
+
+<p>  中心2014年的走向非常清晰，“一体两翼”。一体：VIP用户的大数据挖掘。左翼：包括，掌上JY，wifi精准定位等，电子广告布屏，移动POS等的。。。。。。。（记不得了，完全，年纪大了）。右翼：商务电子化。</p>
+
+<p>  要做的事很多啊，终端开发任务看上去也比较重，加油吧！</p>
+
+<p>  我还是想要买个GUNPLA啊！。。。。。。。。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[hello]]></title>
+    <link href="http://wfqr.github.io/blog/2014/03/11/hello/"/>
+    <updated>2014-03-11T17:17:27+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/03/11/hello</id>
+    <content type="html"><![CDATA[<p>本来这是第一篇BLOG，就像"hello world"一样。搞叉了，算了，就第二篇吧.</p>
+]]></content>
+  </entry>
+  
+</feed>
