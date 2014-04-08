@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-04-02T14:10:22+08:00</updated>
+  <updated>2014-04-08T14:36:24+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -12,6 +12,184 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[辨别相片的方向]]></title>
+    <link href="http://wfqr.github.io/blog/2014/04/08/bian-bie-xiang-pian-de-fang-xiang/"/>
+    <updated>2014-04-08T14:33:16+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/04/08/bian-bie-xiang-pian-de-fang-xiang</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">@interface</span> <span class="nc">UIImage</span> <span class="nl">(fixOrientation)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">fixOrientation</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">@implementation</span> <span class="nc">UIImage</span> <span class="nl">(fixOrientation)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">fixOrientation</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// No-op if the orientation is already correct</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">imageOrientation</span> <span class="o">==</span> <span class="n">UIImageOrientationUp</span><span class="p">)</span> <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// We need to calculate the proper transformation to make the image upright.</span>
+</span><span class='line'>    <span class="c1">// We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.</span>
+</span><span class='line'>    <span class="n">CGAffineTransform</span> <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformIdentity</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">switch</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">imageOrientation</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationDown:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationDownMirrored:</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformTranslate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformRotate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">M_PI</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationLeft:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationLeftMirrored:</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformTranslate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformRotate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">M_PI_2</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationRight:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationRightMirrored:</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformTranslate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformRotate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="o">-</span><span class="n">M_PI_2</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">switch</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">imageOrientation</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationUpMirrored:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationDownMirrored:</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformTranslate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformScale</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationLeftMirrored:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationRightMirrored:</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformTranslate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>            <span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformScale</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Now we draw the underlying CGImage into a new context, applying the transform</span>
+</span><span class='line'>    <span class="c1">// calculated above.</span>
+</span><span class='line'>    <span class="n">CGContextRef</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">CGBitmapContextCreate</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">,</span>
+</span><span class='line'>                                             <span class="n">CGImageGetBitsPerComponent</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">CGImage</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>                                             <span class="n">CGImageGetColorSpace</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">CGImage</span><span class="p">),</span>
+</span><span class='line'>                                             <span class="n">CGImageGetBitmapInfo</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">CGImage</span><span class="p">));</span>
+</span><span class='line'>    <span class="n">CGContextConcatCTM</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">transform</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">switch</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">imageOrientation</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationLeft:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationLeftMirrored:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationRight:</span>
+</span><span class='line'>        <span class="k">case</span> <span class="nl">UIImageOrientationRightMirrored:</span>
+</span><span class='line'>            <span class="c1">// Grr...</span>
+</span><span class='line'>            <span class="n">CGContextDrawImage</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">,</span><span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">),</span> <span class="n">self</span><span class="p">.</span><span class="n">CGImage</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">default</span><span class="o">:</span>
+</span><span class='line'>            <span class="n">CGContextDrawImage</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span><span class="n">self</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">),</span> <span class="n">self</span><span class="p">.</span><span class="n">CGImage</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// And now we just create a new UIImage from the drawing context</span>
+</span><span class='line'>    <span class="n">CGImageRef</span> <span class="n">cgimg</span> <span class="o">=</span> <span class="n">CGBitmapContextCreateImage</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">UIImage</span> <span class="o">*</span><span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithCGImage:</span><span class="n">cgimg</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">CGContextRelease</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">CGImageRelease</span><span class="p">(</span><span class="n">cgimg</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">img</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[看画壁,读影评]]></title>
