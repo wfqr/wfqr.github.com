@@ -12,12 +12,11 @@
     <title>笑笑她爹的旮旯</title>
     <meta name="author" content="笑笑她爹">
     
-    <meta name="description" content="辨别相片的方向 Apr 8th, 2014 IOS 1
+    <meta name="description" content="UIWebView userAgent Apr 17th, 2014 IOS 试了多种办法，只有这一种有用 1
 2
 3
 4
-5
-@interface UIImage (fixOrientation) - (UIImage *)fixOrientation; @end 阅读全文 &rarr; 看画壁,读影评 Apr 2nd, 2014 others &hellip;">
+NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot; &hellip;">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="http://wfqr.github.io">
@@ -64,6 +63,75 @@
           
 
   
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2014/04/17/uiwebview-useragent/">UIWebView userAgent</a>
+  </h1>
+  
+
+
+<div class="meta clearfix">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2014-04-17T10:28:57+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Apr 17<span>th</span>, 2014</time>
+    
+
+  <div class="pull-left">
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li><a class='category' href='/blog/categories/ios/'>IOS</a></li>
+      
+    
+    </ul>
+  </div>
+
+    
+</div>
+
+  
+</header>
+
+
+
+
+  <p>试了多种办法，只有这一种有用</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionnary</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSDictionary</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithObjectsAndKeys:</span><span class="s">@&quot;Mozilla/5.0 (iPhone; U; CPU OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/4.0 Mobile/8C148 Safari/528.16&quot;</span><span class="p">,</span> <span class="s">@&quot;UserAgent&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[[</span><span class="n">NSUserDefaults</span> <span class="n">standardUserDefaults</span><span class="p">]</span> <span class="nl">registerDefaults:</span><span class="n">dictionnary</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">dictionnary</span> <span class="n">release</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但这个方法有弊端：</p>
+
+<p>1.没法知道当前userAgent是什么，一开始你不设置的时候，是没有这个值的，推断UIWebView临时取了默认值，或者按照当前的环境实时取了值。</p>
+
+<p>2.只能修改一次，我去，真的只能一次。</p>
+
+
+  </article>
+  <hr>
+
   
   <article class="listing">
     <header>
@@ -660,58 +728,6 @@
   </article>
   <hr>
 
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2014/03/11/hello/">hello</a>
-  </h1>
-  
-
-
-<div class="meta clearfix">
-    
-
-
-
-
-
-
-
-
-  
-
-
-<time class="pull-left" datetime="2014-03-11T17:17:27+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Mar 11<span>th</span>, 2014</time>
-    
-
-  <div class="pull-left">
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li><a class='category' href='/blog/categories/others/'>others</a></li>
-      
-    
-    </ul>
-  </div>
-
-    
-</div>
-
-  
-</header>
-
-
-
-
-  <p>本来这是第一篇BLOG，就像&#8221;hello world&#8221;一样。搞叉了，算了，就第二篇吧.</p>
-
-
-  </article>
-  <hr>
-
 
   <div class="pagination">
     
@@ -750,7 +766,7 @@
   <section class="social aside-module grid__item one-whole lap-one-half">
     <h1 class="title delta">分类</h1>
     <div id="categories">
-        <li class='category'><a href='/blog/categories/ios/'>IOS (6)</a></li>
+        <li class='category'><a href='/blog/categories/ios/'>IOS (7)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
 <li class='category'><a href='/blog/categories/others/'>others (4)</a></li>
 
@@ -758,6 +774,10 @@
 </section><section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">新鲜出炉</h1>
   <ul class="divided">
+    
+      <li class="post">
+        <a href="/blog/2014/04/17/uiwebview-useragent/">UIWebView userAgent</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/08/bian-bie-xiang-pian-de-fang-xiang/">辨别相片的方向</a>
@@ -773,10 +793,6 @@
     
       <li class="post">
         <a href="/blog/2014/03/18/99qi-ye-shan-hao-ying-yong-zai-fu-wu-qi-duan-de-bu-shu/">299美元企业账号，应用在服务器端的部署</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/17/guan-yu-octopresszhong-morede-yong-fa/">关于octopress中《!-more-》无效</a>
       </li>
     
   </ul>

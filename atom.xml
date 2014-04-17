@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-04-08T14:36:24+08:00</updated>
+  <updated>2014-04-17T10:36:24+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[UIWebView userAgent]]></title>
+    <link href="http://wfqr.github.io/blog/2014/04/17/uiwebview-useragent/"/>
+    <updated>2014-04-17T10:28:57+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/04/17/uiwebview-useragent</id>
+    <content type="html"><![CDATA[<p>试了多种办法，只有这一种有用</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionnary</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSDictionary</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithObjectsAndKeys:</span><span class="s">@&quot;Mozilla/5.0 (iPhone; U; CPU OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/4.0 Mobile/8C148 Safari/528.16&quot;</span><span class="p">,</span> <span class="s">@&quot;UserAgent&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[[</span><span class="n">NSUserDefaults</span> <span class="n">standardUserDefaults</span><span class="p">]</span> <span class="nl">registerDefaults:</span><span class="n">dictionnary</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">dictionnary</span> <span class="n">release</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但这个方法有弊端：</p>
+
+<p>1.没法知道当前userAgent是什么，一开始你不设置的时候，是没有这个值的，推断UIWebView临时取了默认值，或者按照当前的环境实时取了值。</p>
+
+<p>2.只能修改一次，我去，真的只能一次。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[辨别相片的方向]]></title>

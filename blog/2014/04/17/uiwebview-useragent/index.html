@@ -9,13 +9,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>2014信息中心规划 - 笑笑她爹的旮旯</title>
+    <title>UIWebView userAgent - 笑笑她爹的旮旯</title>
     <meta name="author" content="笑笑她爹">
     
-    <meta name="description" content="2014信息中心规划 Mar 14th, 2014 others 刚开完会，信息中心老大说了一下2014年中心的规划。 唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。 中心2014年的走向非常清晰，“一体两翼”。一体： &hellip;">
+    <meta name="description" content="UIWebView userAgent Apr 17th, 2014 IOS 试了多种办法，只有这一种有用 1
+2
+3
+4
+NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot; &hellip;">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http://wfqr.github.io/blog/2014/03/14/2014xin-xi-zhong-xin">
+    <link rel="canonical" href="http://wfqr.github.io/blog/2014/04/17/uiwebview-useragent">
     
     <link href="/favicon.png" rel="icon">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -59,7 +63,7 @@
           <article class="post">
   <header>
   
-  <h1>2014信息中心规划</h1>
+  <h1>UIWebView userAgent</h1>
   
 
 
@@ -76,7 +80,7 @@
   
 
 
-<time class="pull-left" datetime="2014-03-14T10:53:37+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Mar 14<span>th</span>, 2014</time>
+<time class="pull-left" datetime="2014-04-17T10:28:57+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Apr 17<span>th</span>, 2014</time>
     
 
   <div class="pull-left">
@@ -84,7 +88,7 @@
     <ul class="tags unstyled">
     
       
-        <li><a class='category' href='/blog/categories/others/'>others</a></li>
+        <li><a class='category' href='/blog/categories/ios/'>IOS</a></li>
       
     
     </ul>
@@ -99,18 +103,24 @@
 
 
 
-  <p>  刚开完会，信息中心老大说了一下2014年中心的规划。</p>
+  <p>试了多种办法，只有这一种有用</p>
 
-<p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionnary</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSDictionary</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithObjectsAndKeys:</span><span class="s">@&quot;Mozilla/5.0 (iPhone; U; CPU OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/4.0 Mobile/8C148 Safari/528.16&quot;</span><span class="p">,</span> <span class="s">@&quot;UserAgent&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[[</span><span class="n">NSUserDefaults</span> <span class="n">standardUserDefaults</span><span class="p">]</span> <span class="nl">registerDefaults:</span><span class="n">dictionnary</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">dictionnary</span> <span class="n">release</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<!--more-->
 
+<p>但这个方法有弊端：</p>
 
-<p>  中心2014年的走向非常清晰，“一体两翼”。一体：VIP用户的大数据挖掘。左翼：包括，掌上JY，wifi精准定位等，电子广告布屏，移动POS等的。。。。。。。（记不得了，完全，年纪大了）。右翼：商务电子化。</p>
+<p>1.没法知道当前userAgent是什么，一开始你不设置的时候，是没有这个值的，推断UIWebView临时取了默认值，或者按照当前的环境实时取了值。</p>
 
-<p>  要做的事很多啊，终端开发任务看上去也比较重，加油吧！</p>
-
-<p>  我还是想要买个GUNPLA啊！。。。。。。。。</p>
+<p>2.只能修改一次，我去，真的只能一次。</p>
 
 
 </article>
