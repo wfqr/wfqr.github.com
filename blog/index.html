@@ -12,11 +12,30 @@
     <title>笑笑她爹的旮旯</title>
     <meta name="author" content="笑笑她爹">
     
-    <meta name="description" content="UIWebView userAgent Apr 17th, 2014 IOS 试了多种办法，只有这一种有用 1
+    <meta name="description" content="获取当前连接的wifi名称 Apr 23rd, 2014 IOS 1
 2
 3
 4
-NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot; &hellip;">
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+#import &lt;SystemConfiguration/CaptiveNetwork.h&gt; &hellip;">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="http://wfqr.github.io/blog">
@@ -63,6 +82,105 @@ NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot;
           
 
   
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2014/04/23/huo-qu-dang-qian-lian-jie-de-wifiming-cheng/">获取当前连接的wifi名称</a>
+  </h1>
+  
+
+
+<div class="meta clearfix">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2014-04-23T11:39:22+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Apr 23<span>rd</span>, 2014</time>
+    
+
+  <div class="pull-left">
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li><a class='category' href='/blog/categories/ios/'>IOS</a></li>
+      
+    
+    </ul>
+  </div>
+
+    
+</div>
+
+  
+</header>
+
+
+
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#import &lt;SystemConfiguration/CaptiveNetwork.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">NSString</span> <span class="o">*</span><span class="n">wifiName</span> <span class="o">=</span> <span class="s">@&quot;Not Found&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">CFArrayRef</span> <span class="n">myArray</span> <span class="o">=</span> <span class="n">CNCopySupportedInterfaces</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">myArray</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="n">CFDictionaryRef</span> <span class="n">myDict</span> <span class="o">=</span> <span class="n">CNCopyCurrentNetworkInfo</span><span class="p">(</span><span class="n">CFArrayGetValueAtIndex</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="n">myDict</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dict</span> <span class="o">=</span> <span class="p">(</span><span class="n">NSDictionary</span><span class="o">*</span><span class="p">)</span><span class="n">CFBridgingRelease</span><span class="p">(</span><span class="n">myDict</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>                <span class="n">wifiName</span> <span class="o">=</span> <span class="p">[</span><span class="n">dict</span> <span class="nl">valueForKey:</span><span class="s">@&quot;SSID&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;wifiName:%@&quot;</span><span class="p">,</span> <span class="n">wifiName</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+  </article>
+  <hr>
+
   
   <article class="listing">
     <header>
@@ -670,64 +788,6 @@ NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot;
   </article>
   <hr>
 
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2014/03/14/2014xin-xi-zhong-xin/">2014信息中心规划</a>
-  </h1>
-  
-
-
-<div class="meta clearfix">
-    
-
-
-
-
-
-
-
-
-  
-
-
-<time class="pull-left" datetime="2014-03-14T10:53:37+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Mar 14<span>th</span>, 2014</time>
-    
-
-  <div class="pull-left">
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li><a class='category' href='/blog/categories/others/'>others</a></li>
-      
-    
-    </ul>
-  </div>
-
-    
-</div>
-
-  
-</header>
-
-
-
-
-<div class="entry-content clearfix">
-  <p>  刚开完会，信息中心老大说了一下2014年中心的规划。</p>
-
-<p>  唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。</p>
-
-
-  <a class="btn pull-right" href="/blog/2014/03/14/2014xin-xi-zhong-xin/">阅读全文 &rarr;</a>
-</div>
-
-  </article>
-  <hr>
-
 
   <div class="pagination">
     
@@ -766,7 +826,7 @@ NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot;
   <section class="social aside-module grid__item one-whole lap-one-half">
     <h1 class="title delta">分类</h1>
     <div id="categories">
-        <li class='category'><a href='/blog/categories/ios/'>IOS (7)</a></li>
+        <li class='category'><a href='/blog/categories/ios/'>IOS (8)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
 <li class='category'><a href='/blog/categories/others/'>others (4)</a></li>
 
@@ -774,6 +834,10 @@ NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot;
 </section><section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">新鲜出炉</h1>
   <ul class="divided">
+    
+      <li class="post">
+        <a href="/blog/2014/04/23/huo-qu-dang-qian-lian-jie-de-wifiming-cheng/">获取当前连接的wifi名称</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/17/uiwebview-useragent/">UIWebView userAgent</a>
@@ -789,10 +853,6 @@ NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:@&quot;
     
       <li class="post">
         <a href="/blog/2014/03/21/2zhang-cosde-bu-cuo-de-tu/">2张cos的不错的图</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/18/99qi-ye-shan-hao-ying-yong-zai-fu-wu-qi-duan-de-bu-shu/">299美元企业账号，应用在服务器端的部署</a>
       </li>
     
   </ul>

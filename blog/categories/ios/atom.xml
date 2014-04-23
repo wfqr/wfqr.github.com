@@ -4,7 +4,7 @@
   <title><![CDATA[Category: IOS | 笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-04-17T13:49:50+08:00</updated>
+  <updated>2014-04-23T11:41:43+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[获取当前连接的wifi名称]]></title>
+    <link href="http://wfqr.github.io/blog/2014/04/23/huo-qu-dang-qian-lian-jie-de-wifiming-cheng/"/>
+    <updated>2014-04-23T11:39:22+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/04/23/huo-qu-dang-qian-lian-jie-de-wifiming-cheng</id>
+    <content type="html"><![CDATA[<p>```objc</p>
+
+<h1>import &lt;SystemConfiguration/CaptiveNetwork.h></h1>
+
+<pre><code>    NSString *wifiName = @"Not Found";
+
+    CFArrayRef myArray = CNCopySupportedInterfaces();
+
+    if (myArray != nil) {
+
+        CFDictionaryRef myDict = CNCopyCurrentNetworkInfo(CFArrayGetValueAtIndex(myArray, 0));
+
+        if (myDict != nil) {
+
+            NSDictionary *dict = (NSDictionary*)CFBridgingRelease(myDict);
+
+
+
+            wifiName = [dict valueForKey:@"SSID"];
+
+        }
+
+    }
+
+    NSLog(@"wifiName:%@", wifiName);
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[UIWebView userAgent]]></title>
@@ -410,53 +446,6 @@ if(a == YES){</p>
 ```</p>
 
 <p>3Q</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[去掉IOS ICON的高光]]></title>
-    <link href="http://wfqr.github.io/blog/2014/03/14/qu-diao-ios/"/>
-    <updated>2014-03-14T15:13:08+08:00</updated>
-    <id>http://wfqr.github.io/blog/2014/03/14/qu-diao-ios</id>
-    <content type="html"><![CDATA[<p>info三处：</p>
-
-<!--more-->
-
-
-<p>```xml
-<dict></p>
-
-<pre><code>&lt;key&gt;UIPrerenderedIcon&lt;/key&gt;
-&lt;true/&gt;
-
-&lt;key&gt;CFBundleIcons&lt;/key&gt;
-&lt;dict&gt;
-    &lt;key&gt;CFBundlePrimaryIcon&lt;/key&gt;
-    &lt;dict&gt;
-        &lt;key&gt;CFBundleIconFiles&lt;/key&gt;
-        &lt;array&gt;
-            &lt;string&gt;Icon&lt;/string&gt;
-        &lt;/array&gt;
-        &lt;key&gt;UIPrerenderedIcon&lt;/key&gt;
-        &lt;true/&gt;
-    &lt;/dict&gt;
-&lt;/dict&gt;
-&lt;key&gt;CFBundleIcons~ipad&lt;/key&gt;
-&lt;dict&gt;
-    &lt;key&gt;CFBundlePrimaryIcon&lt;/key&gt;
-    &lt;dict&gt;
-        &lt;key&gt;CFBundleIconFiles&lt;/key&gt;
-        &lt;array&gt;
-            &lt;string&gt;Icon&lt;/string&gt;
-        &lt;/array&gt;
-        &lt;key&gt;UIPrerenderedIcon&lt;/key&gt;
-        &lt;true/&gt;
-    &lt;/dict&gt;
-&lt;/dict&gt;
-</code></pre>
-
-<p></dict>
-```</p>
 ]]></content>
   </entry>
   
