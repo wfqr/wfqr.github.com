@@ -4,7 +4,7 @@
   <title><![CDATA[笑笑她爹的旮旯]]></title>
   <link href="http://wfqr.github.io/atom.xml" rel="self"/>
   <link href="http://wfqr.github.io/"/>
-  <updated>2014-05-14T16:46:18+08:00</updated>
+  <updated>2014-05-19T15:06:49+08:00</updated>
   <id>http://wfqr.github.io/</id>
   <author>
     <name><![CDATA[笑笑她爹]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[app通信]]></title>
+    <link href="http://wfqr.github.io/blog/2014/05/19/apptong-xin/"/>
+    <updated>2014-05-19T15:00:35+08:00</updated>
+    <id>http://wfqr.github.io/blog/2014/05/19/apptong-xin</id>
+    <content type="html"><![CDATA[<p>[转]
+受限与iOS系统的运行机制，绝大多数情况下一个应用在进入后台后会马上进入suspend或terminate状态，也就是说不能执行代码，iOS中也没有类似WIndows中Service的概念，但存在某些例外：
+1：有某些重要的任务，例如保存用户数据，网络下载等，可以申请一段时间的background运行时间，但时间段内能进行的操作比较有限，且有时间限制，长度为600秒左右。
+2：某些特定类型的应用，具体包括：</p>
+
+<p>VoIP应用  <br/>
+定位类应用  <br/>
+新闻类应用  <br/>
+音乐类应用</p>
+
+<p>这些类型的应用可以获得没有时间限制的background运行。但并不是你随便声明一下应用类型就可以了，如果挂羊头卖狗肉，是无法通过App Store审核的。</p>
+
+<p>既然大多数情况下系统中只有一个活动的应用在运行，加上iOS内不同应用由于沙箱运行导致的高度隔离，我们熟悉的那些IPC方法，例如管道、邮槽、共享内存、Socket等，往往会显得比较无力了，针对此种情况，苹果也提供了对应的解决方案，也就是我们今天将要介绍的：URL Schema</p>
+
+<p>简单来说，URL Schema就是iOS内的应用调用协议，应用A可以声明自定义的调用协议，就如http/https那样，当另一个应用B打算在应用内打开应用A时，可以打开使用A自定义的协议开头的URL来打开A，除了协议头，URL中还可以附加其他参数，具体过程参见下图：</p>
+
+<!--more-->
+
+
+<p><span class='caption-wrapper left'><img class='caption' src='http://wfqr.github.io/images/myImage/4.png' width='' height='' title=''><span class='caption-text'></span></span></p>
+
+<p>这个就是Safari与Alocola之间的交互过程。</p>
+
+<p>接下来介绍一下自定义URL Schema的过程。</p>
+
+<p>1：创建Xcode项目</p>
+
+<p>2：打开项目，在其中的info.plist中添加如下图所示字段：</p>
+
+<p><span class='caption-wrapper left'><img class='caption' src='http://wfqr.github.io/images/myImage/3.png' width='' height='' title=''><span class='caption-text'></span></span></p>
+
+<p>其中的&#8221;lifengzhong&#8221;便是我为此应用注册的自定义协议名称，其他应用如果想调用我的应用，只要打开形似：“lifengzhong://XXX”的URL便可以了。</p>
+
+<p>3：在项目AppDelegate中添加函数：</p>
+
+<ul>
+<li>(BOOL)application:(UIApplication <em>)application openURL:(NSURL </em>)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+  if ([sourceApplication isEqualToString: @&ldquo;xxx.xxx.xxx&rdquo;]) {
+      //xx
+  }
+  return YES;
+}</li>
+</ul>
+
+
+<p>此函数便是URL Call的处理函数了，每当其他应用通过URL打开此应用时，该函数都会被调用。
+参数url是传进的url，sourceApplication是呼叫应用的bundle identifier，通过此参数，应用可以对呼叫的应用进行过滤。annotation是呼叫过程中可以附加的额外参数，这里没有用到。</p>
+
+<p>4：当另一个应用想调用我的应用时，只需拼接好URL，，然后打开URL即可，十分方便：</p>
+
+<p>NSURL* url = [NSURL URLWithString: @&ldquo;lifengzhong://1,545166&rdquo;];
+[[UIApplication sharedApplication] openURL: url];</p>
+
+<p>这里的1,545166是我自定义的参数，你可以根据自己需要定义URL的格式。</p>
+
+<p>通过上面介绍的URL Schema方法，算是实现了某种程度的进程间通信，但这种方式的一个缺点是，同一时刻还是只能有一个进程在前台，主动呼叫的应用在调用成功后必须进入后台，所以能传递的只有URL中所带的参数或annotation中所带的参数。调用的过程中会出现应用之间的切换，用户体验不好。但聊胜于无，苹果好歹还是留了这么一个口子，感恩吧。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[获取当前连接的wifi名称]]></title>

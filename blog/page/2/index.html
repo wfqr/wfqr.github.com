@@ -12,7 +12,13 @@
     <title>笑笑她爹的旮旯</title>
     <meta name="author" content="笑笑她爹">
     
-    <meta name="description" content="2014信息中心规划 Mar 14th, 2014 others 刚开完会，信息中心老大说了一下2014年中心的规划。 唉，对比文思海辉。。。。。。。，藏着，掖着，就怕员工知道，员工们都在雾里行走，走一步看一步，没有光明，没有未来。 阅读全文 &rarr; hello Mar 11th, &hellip;">
+    <meta name="description" content="修改UIWebView的UserAgent Mar 14th, 2014 IOS 1
+2
+3
+4
+5
+//設定UserAgent參數，綁定在每次UIWebView的Request中使用
+NSDictionary *dictionnary = [[NSDictionary alloc] &hellip;">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="http://wfqr.github.io/blog/page/2">
@@ -59,6 +65,69 @@
           
 
   
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2014/03/14/xiu-gai-uiwebviewde-useragent/">修改UIWebView的UserAgent</a>
+  </h1>
+  
+
+
+<div class="meta clearfix">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2014-03-14T14:54:33+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Mar 14<span>th</span>, 2014</time>
+    
+
+  <div class="pull-left">
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li><a class='category' href='/blog/categories/ios/'>IOS</a></li>
+      
+    
+    </ul>
+  </div>
+
+    
+</div>
+
+  
+</header>
+
+
+
+
+  <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">//設定UserAgent參數，綁定在每次UIWebView的Request中使用</span>
+</span><span class='line'><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionnary</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSDictionary</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithObjectsAndKeys:</span><span class="s">@&quot;Mozilla/5.0 (iPhone; U; CPU OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9   (KHTML, like Gecko)Version/4.0 Mobile/8C148 Safari/528.16&quot;</span><span class="p">,</span> <span class="s">@&quot;UserAgent&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[[</span><span class="n">NSUserDefaults</span> <span class="n">standardUserDefaults</span><span class="p">]</span> <span class="nl">registerDefaults:</span><span class="n">dictionnary</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">dictionnary</span> <span class="n">release</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+  </article>
+  <hr>
+
   
   <article class="listing">
     <header>
@@ -266,7 +335,7 @@
   <section class="social aside-module grid__item one-whole lap-one-half">
     <h1 class="title delta">分类</h1>
     <div id="categories">
-        <li class='category'><a href='/blog/categories/ios/'>IOS (8)</a></li>
+        <li class='category'><a href='/blog/categories/ios/'>IOS (9)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
 <li class='category'><a href='/blog/categories/others/'>others (4)</a></li>
 
@@ -274,6 +343,10 @@
 </section><section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">新鲜出炉</h1>
   <ul class="divided">
+    
+      <li class="post">
+        <a href="/blog/2014/05/19/apptong-xin/">app通信</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/23/huo-qu-dang-qian-lian-jie-de-wifiming-cheng/">获取当前连接的wifi名称</a>
@@ -289,10 +362,6 @@
     
       <li class="post">
         <a href="/blog/2014/04/02/kan-hua-bi-du-ying-ping/">看画壁,读影评</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/21/2zhang-cosde-bu-cuo-de-tu/">2张cos的不错的图</a>
       </li>
     
   </ul>
